@@ -1,5 +1,6 @@
 import type { Route } from "./+types/home";
 import { Welcome } from "../welcome/welcome";
+import MenuBar from "../components/MenuBar/MenuBar";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +10,10 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <div>
+      <h1>Gallery Manager - Photography West Gallery </h1>
+      <MenuBar />
+    </div>
+  );
 }

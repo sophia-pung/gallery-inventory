@@ -10,3 +10,17 @@ body {
     color-scheme: dark;
   }
 }
+
+h1 {
+  background: #92aec7;
+  color: white;
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+  padding: 0px 10px;
+  font-family: "Microsoft Sans Serif";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+}

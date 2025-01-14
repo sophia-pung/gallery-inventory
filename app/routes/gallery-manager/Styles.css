@@ -1,0 +1,156 @@
+h1 {
+  background: #92aec7;
+  color: white;
+  margin: 0;
+  font-size: 18px;
+  color: #000;
+  padding: 0px 10px;
+  font-family: "Microsoft Sans Serif";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+}
+
+body,
+html {
+  height: 100%; /* Full-page height */
+  margin: 0; /* Remove default margins */
+  background-color: #efefef; /* Page-wide background color */
+  font-family: Arial, sans-serif; /* Optional: consistent font */
+}
+
+.gallery-content {
+  display: flex;
+  align-items: flex-start; /* Align children at the top */
+  gap: 20px; /* Space between the icon and text */
+  padding: 20px 0; /* Add vertical padding if needed */
+  max-width: 800px;
+  margin-top: 40px; /* Vertical space from the top */
+  margin-left: 27px; /* Space from the left */
+  background-color: transparent; /* Remove background color */
+  height: 105px; /* Set exact height */
+  box-sizing: border-box; /* Ensure padding fits inside the height */
+  border: none; /* Remove the border */
+}
+
+/* Icon container */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  width: 46px;
+  height: auto; /* Allows it to scale with content */
+}
+
+.icon {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  margin-top: 0; /* Align to top */
+}
+
+.icon::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  top: 4px; /* Adjust to position */
+  left: calc(50% - 2.5px); /* Center horizontally */
+}
+
+.outer-ellipse {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%; /* Makes it a perfect circle */
+  background: linear-gradient(135deg, #5978d9 5.32%, #102a7d 89.05%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Ensures child elements position correctly */
+}
+
+.inner-ellipse {
+  display: flex; /* Flexbox to position items */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-evenly; /* Spread items out */
+  align-items: center; /* Center items horizontally */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid white; /* Creates the thin ring effect */
+  background-color: transparent; /* Ensures the center is transparent */
+}
+
+.ellipse {
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.rectangle {
+  width: 5px;
+  height: 15px;
+  background-color: white;
+  border-radius: 2px; /* Slightly rounded corners */
+}
+
+/* Text container */
+.text-container {
+  flex: 1; /* Allows the text to expand and take up remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align text to the top */
+}
+
+.text-container h2 {
+  color: #294396;
+  font-family: "Microsoft Sans Serif";
+  font-size: 18px;
+  font-style: normal;
+  line-height: 150%; /* 27px */
+  margin: 0;
+}
+
+.text-container p {
+  color: #000;
+  font-family: "Microsoft Sans Serif";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+}
+
+.text-container .divider {
+  height: 1px; /* Thickness of the line */
+  background-color: black; /* Color of the line */
+  margin: 10px 0; /* Adds spacing above and below the line */
+  width: 100%; /* Stretches across the container */
+}
+
+.text-container a {
+  color: #294396;
+  text-align: center;
+  font-family: "Microsoft Sans Serif";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 18px */
+}
+
+.text-container ul {
+  margin: 0;
+  padding-left: 20px; /* Indent for bullets */
+}
+
+.text-container ul li {
+  list-style: disc;
+}
+
+.text-container ul li::marker {
+  color: #294396;
+  width: 3px;
+  height: 3px;
+}

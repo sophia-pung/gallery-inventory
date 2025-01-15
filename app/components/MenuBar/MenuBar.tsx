@@ -7,6 +7,7 @@ interface MenuItem {
   shortcut?: string;
   underlineIndex?: number;
   submenuItems?: MenuItem[];
+  separatorPositions?: number[];
 }
 
 interface MenuConfig {
@@ -19,7 +20,15 @@ const fileMenuItems: MenuItem[] = [
     label: "Find...",
     hasSubmenu: true,
     underlineIndex: 0,
-    submenuItems: [{ label: "Item" }, { label: "Titles" }],
+    submenuItems: [
+      { label: "Find Item" },
+      { label: "Find Title", underlineIndex: 5 },
+      { label: "Find Contact", underlineIndex: 5, shortcut: "F8" },
+      { label: "Find Transaction", underlineIndex: 8 },
+      { label: "Find Costs", underlineIndex: 6 },
+      { label: "Find Purchase", underlineIndex: 5 },
+    ],
+    separatorPositions: [2, 4, 5],
   },
   { label: "Item", shortcut: "F7" },
   { label: "Titles", underlineIndex: 0 },
@@ -46,27 +55,97 @@ const fileMenuItems: MenuItem[] = [
 ];
 
 const editMenuItems: MenuItem[] = [
-  { label: "Undo" },
-  { label: "Redo" },
-  { label: "Cut" },
-  { label: "Copy" },
-  { label: "Paste" },
+  { label: "Undo", underlineIndex: 0, shortcut: "CTRL+Z" },
+  { label: "Redo", underlineIndex: 0, shortcut: "CTRL+R" },
+  { label: "Cut", underlineIndex: 2, shortcut: "CTRL+X" },
+  { label: "Copy", underlineIndex: 0, shortcut: "CTRL+C" },
+  { label: "Paste", underlineIndex: 0, shortcut: "CTRL+V" },
+  { label: "Clear", underlineIndex: 3 },
+  { label: "Select All", underlineIndex: 2, shortcut: "CTRL+A" },
 ];
 
 const listsMenuItems: MenuItem[] = [
-  { label: "Customers" },
-  { label: "Vendors" },
-  { label: "Items" },
+  { label: "Art Categories", underlineIndex: 0 },
+  { label: "Item Types/Mediums", underlineIndex: 0 },
+  { label: "Payment Types", underlineIndex: 0 },
+  { label: "Sales Tax", hasSubmenu: true, underlineIndex: 6 },
+  { label: "Service Rates", underlineIndex: 8 },
+  { label: "Stock Locations", underlineIndex: 6 },
+  { label: "Membership Types", underlineIndex: 0 },
 ];
 
 const printMenuItems: MenuItem[] = [
-  { label: "Print Preview" },
-  { label: "Print..." },
+  {
+    label: "Item...",
+    hasSubmenu: true,
+    underlineIndex: 0,
+  },
+  {
+    label: "Contact...",
+    hasSubmenu: true,
+    underlineIndex: 0,
+  },
+  { label: "Sales Reports", underlineIndex: 0 },
+  { label: "Statements", underlineIndex: 5 },
+  { label: "Approvals", underlineIndex: 0 },
+  { label: "Credit Card Summary", underlineIndex: 9 },
+  { label: "Layaways / Receivables", underlineIndex: 0 },
+  { label: "Sales Tax Report", underlineIndex: 6 },
+  { label: "Sales History", underlineIndex: 6 },
+  { label: "Show Past Due Amounts" },
+  { label: "Sales Stats" },
+  {
+    label: "Work Order...",
+    hasSubmenu: true,
+    underlineIndex: 0,
+  },
+  {
+    label: "Purchases...",
+    hasSubmenu: true,
+    underlineIndex: 0,
+  },
+  {
+    label: "Online...",
+    hasSubmenu: true,
+    underlineIndex: 1,
+  },
+  {
+    label: "Staff...",
+    hasSubmenu: true,
+    underlineIndex: 1,
+  },
+  {
+    label: "System...",
+    hasSubmenu: true,
+    underlineIndex: 1,
+  },
+  { label: "Show Builds" },
+  { label: "Modify Reports" },
 ];
 
 const toolsMenuItems: MenuItem[] = [
-  { label: "Options" },
-  { label: "Customize" },
+  { label: "Change Company Settings", underlineIndex: 15 },
+  { label: "Change Screen Labels", underlineIndex: 14 },
+  { label: "Change Operator", underlineIndex: 0, shortcut: "F2" },
+  { label: "Change Directories", underlineIndex: 1 },
+  { label: "Browse", underlineIndex: 3 },
+  {
+    label: "Modify...",
+    hasSubmenu: true,
+    underlineIndex: 0,
+  },
+  {
+    label: "Data...",
+    hasSubmenu: true,
+    underlineIndex: 0,
+  },
+  { label: "Check Inventory", underlineIndex: 6 },
+  { label: "Move Inventory", underlineIndex: 2 },
+  { label: "Convert Images", underlineIndex: 8 },
+  { label: "Update Prices" },
+  { label: "Change Background" },
+  { label: "Clear Windows" },
+  { label: "Run a Support Script" },
 ];
 
 const menuConfigs: Record<string, MenuConfig> = {
@@ -76,7 +155,7 @@ const menuConfigs: Record<string, MenuConfig> = {
   },
   Edit: {
     items: editMenuItems,
-    separatorPositions: [],
+    separatorPositions: [2],
   },
   Lists: {
     items: listsMenuItems,
@@ -84,7 +163,7 @@ const menuConfigs: Record<string, MenuConfig> = {
   },
   Print: {
     items: printMenuItems,
-    separatorPositions: [],
+    separatorPositions: [2, 12, 18],
   },
   Tools: {
     items: toolsMenuItems,
@@ -132,7 +211,7 @@ const FileDropdown = () => {
       if (item.hasSubmenu) {
         menu.push(
           <li key={item.label} className="submenu-toggle">
-            <div
+            <button
               className={`submenu-button ${
                 activeSubmenu === item.label ? "active" : ""
               }`}
@@ -140,16 +219,22 @@ const FileDropdown = () => {
             >
               <span>{renderLabel(item)}</span>
               <span className="submenu-indicator">►</span>
-            </div>
+            </button>
             {activeSubmenu === item.label && (
               <ul className="submenu">
-                {item.submenuItems?.map((subItem) => (
-                  <li key={subItem.label} className="menu-item-content">
-                    <span>{renderLabel(item)}</span>
-                    {subItem.shortcut && (
-                      <span className="shortcut">{subItem.shortcut}</span>
+                {item.submenuItems?.map((subItem, subIndex) => (
+                  <React.Fragment key={subIndex}>
+                    {/* Add separator if the current index matches a separator position */}
+                    {item.separatorPositions?.includes(subIndex) && (
+                      <div className="menu-separator" />
                     )}
-                  </li>
+                    <li key={subItem.label} className="menu-item-content">
+                      <span>{renderLabel(subItem)}</span>
+                      {subItem.shortcut && (
+                        <span className="shortcut">{subItem.shortcut}</span>
+                      )}
+                    </li>
+                  </React.Fragment>
                 ))}
               </ul>
             )}

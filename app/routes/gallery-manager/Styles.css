@@ -61,8 +61,8 @@ html {
 }
 
 .outer-ellipse {
-  width: 33px;
-  height: 33px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%; /* Makes it a perfect circle */
   background: linear-gradient(135deg, #5978d9 5.32%, #102a7d 89.05%);
   display: flex;
@@ -76,8 +76,8 @@ html {
   flex-direction: column; /* Stack items vertically */
   justify-content: space-evenly; /* Spread items out */
   align-items: center; /* Center items horizontally */
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid white; /* Creates the thin ring effect */
   background-color: transparent; /* Ensures the center is transparent */

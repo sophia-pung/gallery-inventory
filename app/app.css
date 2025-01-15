@@ -11,6 +11,12 @@ body {
   }
 }
 
+body {
+  margin: 0; /* Remove default margins */
+  background-color: #efefef; /* Set page-wide background color */
+  font-family: Arial, sans-serif; /* Optional: Ensure consistent font */
+}
+
 h1 {
   background: #92aec7;
   color: white;
@@ -23,4 +29,10 @@ h1 {
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 18px */
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
 }

@@ -1,6 +1,10 @@
+// Page.tsx
+
 import type { Route } from "../+types/home";
+import React, { useState } from "react";
 import MenuBar from "../../components/MenuBar/MenuBar";
-import "./Styles.css";
+import "./styles.css";
+import ItemDialog from "../../components/Dialogs/ItemDialog/index";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -10,11 +14,26 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function GalleryManager() {
+  const [isItemDialogOpen, setIsItemDialogOpen] = useState(false);
+
+  const handleItemDialogOpen = () => {
+    setIsItemDialogOpen(true);
+  };
+
+  const handleItemDialogClose = () => {
+    console.log("handle Item close");
+    setIsItemDialogOpen(false);
+  };
+
+  // const toggleItemDialog = () => {
+  //   setIsItemDialogOpen((prev) => !prev);
+  // };
+
   return (
     <div>
       <div>
         <h1>Gallery Manager - Photography West Gallery </h1>
-        <MenuBar />
+        <MenuBar onOpenItemDialog={handleItemDialogOpen} />
       </div>
       <div className="gallery-content">
         {/* Icon Section */}
@@ -41,6 +60,7 @@ export default function GalleryManager() {
           </ul>
         </div>
       </div>
+      <ItemDialog isOpen={isItemDialogOpen} onClose={handleItemDialogClose} />
     </div>
   );
 }

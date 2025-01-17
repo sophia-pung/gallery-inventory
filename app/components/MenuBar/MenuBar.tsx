@@ -1,5 +1,8 @@
+// MenuBar.tsx
+
 import "./MenuBar.css";
 import React, { useState, type JSX } from "react";
+import ItemDialog from "../Dialogs/ItemDialog";
 
 interface MenuItem {
   label: string;
@@ -171,13 +174,22 @@ const menuConfigs: Record<string, MenuConfig> = {
   },
 };
 
-const FileDropdown = () => {
+// prettier-ignore
+const MenuBar = ({ onOpenItemDialog }: { onOpenItemDialog: () => void }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [isItemDialogOpen, setIsItemDialogOpen] = useState(true);
 
   const toggleMenu = (menuName: string) => {
     setActiveMenu(activeMenu === menuName ? null : menuName);
     setActiveSubmenu(null);
+  };
+
+  const handleMenuItemClick = (itemLabel: string) => {
+    if (itemLabel === "Item") {
+    onOpenItemDialog();
+    }
+    setActiveMenu(null); 
   };
 
   const toggleSubmenu = (submenuName: string) => {
@@ -243,7 +255,10 @@ const FileDropdown = () => {
       } else {
         menu.push(
           <li className="dropdown-menu-item">
-            <div className="menu-item-content">
+            <div
+              className="menu-item-content"
+              onClick={() => handleMenuItemClick(item.label)}
+            >
               <span>{renderLabel(item)}</span>
               {item.shortcut && (
                 <span className="shortcut">{item.shortcut}</span>
@@ -282,4 +297,4 @@ const FileDropdown = () => {
   );
 };
 
-export default FileDropdown;
+export default MenuBar;

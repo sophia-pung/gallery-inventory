@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div>
       <h1>Gallery Manager - Photography West Gallery </h1>
-      <MenuBar />
+      {/* <MenuBar /> */}
     </div>
   );
 }

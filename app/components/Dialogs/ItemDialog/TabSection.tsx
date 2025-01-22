@@ -171,6 +171,24 @@ const TabSection = () => {
                 </div>
               </div>
             </div>
+            <div className="lower-section">
+              <div className="form-group qty-hand-row">
+                <label>Qty On Hand for Lot</label>
+                <input
+                  type="text"
+                  defaultValue="996"
+                  className="input-field disabled-input"
+                  disabled
+                />
+                <label>Qty On Hand for Title</label>
+                <input
+                  type="text"
+                  defaultValue="996"
+                  className="input-field disabled-input"
+                  disabled
+                />
+              </div>
+            </div>
           </div>
         );
       default:

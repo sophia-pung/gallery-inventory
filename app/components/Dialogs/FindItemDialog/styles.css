@@ -1,0 +1,59 @@
+.button-row {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-bottom: 1px solid #7b7b7b;
+}
+
+.button-row button {
+  padding: 4px 12px;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  border: 1px solid #7b7b7b;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.search-criteria {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grid-container {
+  border: 1px solid #7b7b7b;
+  margin: 8px;
+  background: white;
+  height: 300px;
+  overflow: auto;
+}
+
+.find-item-grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.find-item-grid th {
+  background: #ece9d8;
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-size: 11px;
+  text-align: left;
+}
+
+.find-item-grid td {
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-size: 11px;
+}
+
+.filter-options {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.status-options {
+  display: flex;
+  gap: 8px;
+}

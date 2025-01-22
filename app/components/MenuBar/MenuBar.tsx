@@ -77,6 +77,11 @@ const listsMenuItems: MenuItem[] = [
   { label: "Membership Types", underlineIndex: 0 },
 ];
 
+interface MenuBarProps {
+  onOpenItemDialog: () => void;
+  onOpenFindItemDialog: () => void;
+}
+
 const printMenuItems: MenuItem[] = [
   {
     label: "Item...",
@@ -174,8 +179,7 @@ const menuConfigs: Record<string, MenuConfig> = {
   },
 };
 
-// prettier-ignore
-const MenuBar = ({ onOpenItemDialog }: { onOpenItemDialog: () => void }) => {
+const MenuBar = ({ onOpenItemDialog, onOpenFindItemDialog }: MenuBarProps) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [isItemDialogOpen, setIsItemDialogOpen] = useState(true);
@@ -187,9 +191,11 @@ const MenuBar = ({ onOpenItemDialog }: { onOpenItemDialog: () => void }) => {
 
   const handleMenuItemClick = (itemLabel: string) => {
     if (itemLabel === "Item") {
-    onOpenItemDialog();
+      onOpenItemDialog();
+    } else if (itemLabel === "Find Item") {
+      onOpenFindItemDialog();
     }
-    setActiveMenu(null); 
+    setActiveMenu(null);
   };
 
   const toggleSubmenu = (submenuName: string) => {
@@ -236,11 +242,14 @@ const MenuBar = ({ onOpenItemDialog }: { onOpenItemDialog: () => void }) => {
               <ul className="submenu">
                 {item.submenuItems?.map((subItem, subIndex) => (
                   <React.Fragment key={subIndex}>
-                    {/* Add separator if the current index matches a separator position */}
                     {item.separatorPositions?.includes(subIndex) && (
                       <div className="menu-separator" />
                     )}
-                    <li key={subItem.label} className="menu-item-content">
+                    <li
+                      key={subItem.label}
+                      className="menu-item-content"
+                      onClick={() => handleMenuItemClick(subItem.label)}
+                    >
                       <span>{renderLabel(subItem)}</span>
                       {subItem.shortcut && (
                         <span className="shortcut">{subItem.shortcut}</span>

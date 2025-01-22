@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import MenuBar from "../../components/MenuBar/MenuBar";
 import "./styles.css";
 import ItemDialog from "../../components/Dialogs/ItemDialog/index";
+import FindItemDialog from "../../components/Dialogs/FindItemDialog/index";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -15,6 +16,7 @@ export function meta({}: Route.MetaArgs) {
 
 export default function GalleryManager() {
   const [isItemDialogOpen, setIsItemDialogOpen] = useState(false);
+  const [isFindItemDialogOpen, setIsFindItemDialogOpen] = useState(false);
 
   const handleItemDialogOpen = () => {
     setIsItemDialogOpen(true);
@@ -25,18 +27,25 @@ export default function GalleryManager() {
     setIsItemDialogOpen(false);
   };
 
-  // const toggleItemDialog = () => {
-  //   setIsItemDialogOpen((prev) => !prev);
-  // };
+  const handleFindItemDialogOpen = () => {
+    setIsFindItemDialogOpen(true);
+    console.log("find item dialog is open");
+  };
+
+  const handleFindItemDialogClose = () => {
+    setIsFindItemDialogOpen(false);
+  };
 
   return (
     <div>
       <div>
         <h1>Gallery Manager - Photography West Gallery </h1>
-        <MenuBar onOpenItemDialog={handleItemDialogOpen} />
+        <MenuBar
+          onOpenItemDialog={handleItemDialogOpen}
+          onOpenFindItemDialog={handleFindItemDialogOpen}
+        />
       </div>
       <div className="gallery-content">
-        {/* Icon Section */}
         <div className="icon-container">
           <div className="icon">
             <div className="outer-ellipse">
@@ -48,7 +57,6 @@ export default function GalleryManager() {
           </div>
         </div>
 
-        {/* Text Section */}
         <div className="text-container">
           <h2>Navigation to the webpage was canceled</h2>
           <div className="divider"></div>
@@ -60,6 +68,8 @@ export default function GalleryManager() {
           </ul>
         </div>
       </div>
+      {/* prettier-ignore */}
+      <FindItemDialog isOpen={isFindItemDialogOpen} onClose={handleFindItemDialogClose} />
       <ItemDialog isOpen={isItemDialogOpen} onClose={handleItemDialogClose} />
     </div>
   );

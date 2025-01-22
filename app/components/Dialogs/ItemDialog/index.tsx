@@ -1,5 +1,5 @@
 // index.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import TabSection from "./TabSection";
 import UpperSection from "./UpperSection";
@@ -8,6 +8,7 @@ import UpperSection from "./UpperSection";
 const ItemDialog = ({  isOpen, onClose }: {  isOpen: boolean; onClose: () => void }) => {
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleMinimize = () => {
     console.log("minimize")
@@ -19,10 +20,27 @@ const ItemDialog = ({  isOpen, onClose }: {  isOpen: boolean; onClose: () => voi
     setIsMaximized((prev) => !prev);
     setIsMinimized(false);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 850) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);  // Add this to restore visibility when window is big enough
+      }
+    };
+  
+    // Initial check
+    handleResize();
+  
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  if (!isVisible || !isOpen) return null;
   
   return (
-    // prettier-ignore
-    <div className={`overlay ${isMinimized ? "minimized" : ""}`} style={{ display: isOpen ? "flex" : "none" }}>
+    <div className={`overlay ${isMinimized ? "minimized" : ""}`}>
       <div
         className={`border ${isMaximized ? "maximized" : ""}`}
         style={{

@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
-}
-
 body {
   margin: 0; /* Remove default margins */
   background-color: #efefef; /* Set page-wide background color */

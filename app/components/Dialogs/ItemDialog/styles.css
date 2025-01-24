@@ -506,7 +506,6 @@ label.art-text {
 .locations-grid th,
 .locations-grid td {
   border: 1px solid #7b7b7b;
-  padding: 4px 8px;
   text-align: left;
   font-size: 11px;
 }
@@ -586,4 +585,44 @@ label.art-text {
 
 .date-info .date-input {
   width: 200px;
+}
+
+.transactions-tab {
+  padding: 8px;
+}
+
+.transactions-grid table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-grid th,
+.transactions-grid td {
+  border: 1px solid #7b7b7b;
+  padding: 4px 8px;
+  text-align: left;
+  font-size: 11px;
+}
+
+.transactions-grid th {
+  background-color: #ece9d8;
+}
+
+.locations-grid td,
+.transactions-grid td {
+  border: 1px solid #7b7b7b;
+  padding: 2px 4px; /* Reduced from 4px 8px */
+  text-align: left;
+  font-size: 11px;
+  height: 12px; /* Add explicit height */
+  line-height: 16px; /* Match the height */
+}
+
+.locations-grid th,
+.transactions-grid th {
+  border: 1px solid #7b7b7b;
+  padding: 2px 4px; /* Reduced from 4px 8px */
+  text-align: left;
+  font-size: 11px;
+  background-color: #ece9d8;
 }

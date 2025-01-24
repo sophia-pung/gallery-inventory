@@ -223,14 +223,16 @@ const TabSection = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Entered into System</td>
-                    <td>Stock</td>
-                    <td>1</td>
-                    <td>Linda</td>
-                    <td>07/15/2023 11:25:18 AM</td>
-                    <td>ITEMPURCHA</td>
-                  </tr>
+                  {[...Array(8)].map((_, index) => (
+                    <tr key={index}>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -281,6 +283,48 @@ const TabSection = () => {
                 CONSIGNED: BARBARA RICHARDS (BROTHER DECEASED)
                 PIECE BROUGHT BACK ON CONSIGNMENT 06/20/2023`}
               />
+            </div>
+          </div>
+        );
+
+      case "Transactions":
+        return (
+          <div className="transactions-tab">
+            <div className="transactions-grid">
+              <table>
+                <thead>
+                  <tr>
+                    <th>PO #</th>
+                    <th>Date</th>
+                    <th>Client</th>
+                    <th>Ed #</th>
+                    <th>Type</th>
+                    <th>Item Price</th>
+                    <th>Qty</th>
+                    <th>Item Total</th>
+                    <th>Trans Total</th>
+                    <th>Paid in Full</th>
+                    <th>Trans Loc</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[...Array(8)].map((_, index) => (
+                    <tr key={index}>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         );

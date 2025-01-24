@@ -284,8 +284,14 @@ body {
 .checkbox-group {
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 8px;
   margin-left: 8px;
+}
+
+.checkbox-group.location-checkboxes .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .pic-row {
@@ -405,6 +411,7 @@ label.art-text {
 
 .disabled-input {
   background-color: #dadada;
+  width: 200px;
 }
 
 .bottom-disabled {
@@ -470,4 +477,81 @@ label.art-text {
 .status-text {
   color: #666;
   font-size: 11px;
+}
+
+.locations-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+}
+
+.locations-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #7b7b7b;
+}
+
+.locations-grid {
+  flex: 1;
+  overflow: auto;
+}
+
+.locations-grid table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.locations-grid th,
+.locations-grid td {
+  border: 1px solid #7b7b7b;
+  padding: 4px 8px;
+  text-align: left;
+  font-size: 11px;
+}
+
+.locations-grid th {
+  background-color: #ece9d8;
+}
+
+.locations-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.date-info {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.action-buttons button {
+  padding: 2px 8px;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  border: 1px solid #7b7b7b;
+  font-size: 11px;
+}
+
+.date-field {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.date-field input {
+  width: auto;
+}
+
+.locations-header .disabled-input {
+  width: 200px;
 }

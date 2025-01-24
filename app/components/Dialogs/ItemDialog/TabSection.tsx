@@ -5,14 +5,7 @@ import React, { useState } from "react";
 const TabSection = () => {
   const [activeTab, setActiveTab] = useState("General");
 
-  const tabs = [
-    "General",
-    "Costs",
-    "Locations",
-    "Notes",
-    "Editions",
-    "Transactions",
-  ];
+  const tabs = ["General", "Locations", "Notes", "Transactions"];
 
   const renderContent = () => {
     switch (activeTab) {
@@ -191,6 +184,82 @@ const TabSection = () => {
             </div>
           </div>
         );
+
+      case "Locations":
+        return (
+          <div className="locations-tab">
+            <div className="locations-header">
+              <div className="checkbox-group location-checkboxes">
+                <div className="checkbox">
+                  <input type="checkbox" id="quickSale" />
+                  <label htmlFor="quickSale">QuickSale</label>
+                </div>
+                <div className="checkbox">
+                  <input type="checkbox" id="quickPO" />
+                  <label htmlFor="quickPO">QuickPO</label>
+                </div>
+              </div>
+              <span>Stock Location</span>
+              <div className="sold-field">
+                <input
+                  type="text"
+                  value="Sold"
+                  className="input-field disabled-input"
+                  disabled
+                />
+              </div>
+            </div>
+
+            <div className="locations-grid">
+              <table>
+                <thead>
+                  <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Qty</th>
+                    <th>Staff</th>
+                    <th>Date</th>
+                    <th>Source</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Entered into System</td>
+                    <td>Stock</td>
+                    <td>1</td>
+                    <td>Linda</td>
+                    <td>07/15/2023 11:25:18 AM</td>
+                    <td>ITEMPURCHA</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="locations-footer">
+              <div className="date-info">
+                <label>Date Added:</label>
+                <input
+                  type="text"
+                  value="06/20/2023 12:00:00 AM"
+                  className="input-field disabled-input date-input"
+                  disabled
+                />
+                <label>Date Inventoried:</label>
+                <input
+                  type="text"
+                  value="01/18/2025 03:44:16 PM"
+                  className="input-field disabled-input date-input"
+                  disabled
+                />
+              </div>
+            </div>
+            <div className="action-buttons">
+              <button>Add</button>
+              <button>Cancel</button>
+              <button>Date</button>
+            </div>
+          </div>
+        );
+
       default:
         return <p>Content for {activeTab} tab</p>;
     }

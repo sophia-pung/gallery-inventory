@@ -260,6 +260,31 @@ const TabSection = () => {
           </div>
         );
 
+      case "Notes":
+        return (
+          <div className="notes-tab">
+            <div className="notes-section">
+              <h3>Description for this TITLE</h3>
+              <textarea
+                className="description-area"
+                defaultValue="Lithograph printed by Dave Gardner, Dual Graphics and signed by the artist in 1988. Slight pinpoint impressions in mid right side"
+              />
+            </div>
+
+            <div className="notes-section">
+              <h3>Notes / Provenance for this ITEM</h3>
+              <textarea
+                className="notes-area"
+                defaultValue={`PWG
+                Limited Edition Lithograph
+                PWG ORGINAL INV# GRBL.000296.00
+                CONSIGNED: BARBARA RICHARDS (BROTHER DECEASED)
+                PIECE BROUGHT BACK ON CONSIGNMENT 06/20/2023`}
+              />
+            </div>
+          </div>
+        );
+
       default:
         return <p>Content for {activeTab} tab</p>;
     }

@@ -411,7 +411,6 @@ label.art-text {
 
 .disabled-input {
   background-color: #dadada;
-  width: 200px;
 }
 
 .bottom-disabled {
@@ -553,5 +552,38 @@ label.art-text {
 }
 
 .locations-header .disabled-input {
+  width: 200px;
+}
+
+.notes-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px;
+}
+
+.notes-section h3 {
+  font-size: 11px;
+  font-weight: normal;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+.notes-section textarea {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  font-size: 11px;
+  resize: vertical;
+  background: white;
+}
+
+.notes-area {
+  min-height: 150px; /* Make the second text area taller */
+}
+
+.date-info .date-input {
   width: 200px;
 }

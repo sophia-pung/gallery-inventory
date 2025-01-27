@@ -2,7 +2,6 @@
 
 import "./MenuBar.css";
 import React, { useState, type JSX } from "react";
-import ItemDialog from "../Dialogs/ItemDialog";
 
 interface MenuItem {
   label: string;

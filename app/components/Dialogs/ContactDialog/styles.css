@@ -43,63 +43,58 @@
   gap: 2px;
 }
 
-/* Address/Phone Tab Styles */
-.address-content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.address-section {
-  border: 1px solid #7b7b7b;
-  padding: 8px;
-  background: white;
+.form-group .checkbox label {
+  width: auto;
+  text-align: left;
+  display: inline;
 }
 
 .address-navigation {
   display: flex;
-  gap: 4px;
   align-items: center;
-  margin-bottom: 8px;
+  gap: 4px;
+  margin-bottom: 16px;
 }
 
 .address-navigation button {
   padding: 2px 8px;
-  border: 1px solid #7b7b7b;
-  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
-  font-size: 11px;
+  border: 1px solid #808080;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  height: 22px;
 }
 
-.state-input {
-  width: 40px !important;
+.address-navigation span {
+  margin: 0 8px;
 }
 
-.phone-section {
+.disabled-input {
+  background-color: #dadada;
+}
+
+/* Address/Phone Tab Styles */
+.address-phone-content {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 16px;
+  background: #f0f0f0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.address-section {
+  flex: 2; /* Takes up more space */
   border: 1px solid #7b7b7b;
   padding: 8px;
   background: white;
 }
 
-.phone-header {
-  display: grid;
-  grid-template-columns: 1fr 100px 60px auto;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
+.phone-section {
+  flex: 1; /* Takes up less space */
+  border: 1px solid #7b7b7b;
+  padding: 8px;
+  background: white;
 }
-
-.phone-buttons {
-  display: flex;
-  gap: 4px;
-}
-
-.phone-entry {
-  display: grid;
-  grid-template-columns: 1fr 100px 60px;
-  gap: 8px;
-  align-items: center;
-}
-
 /* Transaction Tab Styles */
 .transactions-grid table {
   width: 100%;
@@ -166,11 +161,15 @@
 }
 
 .input-field {
-  width: 100%;
   height: 20px;
   text-align: right;
   border: 1px solid #7b7b7b;
   padding: 1px 4px;
+}
+
+.input-field.mailing {
+  flex: 0 0 150px;
+  text-align: left;
 }
 
 .buttons-tax-section {

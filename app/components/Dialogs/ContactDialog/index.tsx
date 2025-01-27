@@ -64,7 +64,7 @@ const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
                 alt="mona lisa"
                 className="header-icon"
               />
-              Contact Details
+              Contacts
             </span>
           </div>
           <div className="control-buttons">

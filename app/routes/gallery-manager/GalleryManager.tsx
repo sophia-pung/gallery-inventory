@@ -6,6 +6,7 @@ import MenuBar from "../../components/MenuBar/MenuBar";
 import "./styles.css";
 import ItemDialog from "../../components/Dialogs/ItemDialog/index";
 import FindItemDialog from "../../components/Dialogs/FindItemDialog/index";
+import ContactsDialog from "../../components/Dialogs/ContactDialog";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,6 +18,7 @@ export function meta({}: Route.MetaArgs) {
 export default function GalleryManager() {
   const [isItemDialogOpen, setIsItemDialogOpen] = useState(false);
   const [isFindItemDialogOpen, setIsFindItemDialogOpen] = useState(false);
+  const [isContactsDialogOpen, setIsContactsDialogOpen] = useState(false);
 
   const handleItemDialogOpen = () => {
     setIsItemDialogOpen(true);
@@ -36,6 +38,14 @@ export default function GalleryManager() {
     setIsFindItemDialogOpen(false);
   };
 
+  const handleContactsDialogOpen = () => {
+    setIsContactsDialogOpen(true);
+  };
+
+  const handleContactsDialogClose = () => {
+    setIsContactsDialogOpen(false);
+  };
+
   return (
     <div>
       <div>
@@ -43,6 +53,7 @@ export default function GalleryManager() {
         <MenuBar
           onOpenItemDialog={handleItemDialogOpen}
           onOpenFindItemDialog={handleFindItemDialogOpen}
+          onOpenContactsDialog={handleContactsDialogOpen}
         />
       </div>
       <div className="gallery-content">
@@ -71,6 +82,8 @@ export default function GalleryManager() {
       {/* prettier-ignore */}
       <FindItemDialog isOpen={isFindItemDialogOpen} onClose={handleFindItemDialogClose} />
       <ItemDialog isOpen={isItemDialogOpen} onClose={handleItemDialogClose} />
+      {/* prettier-ignore */}
+      <ContactsDialog isOpen={isContactsDialogOpen} onClose={handleContactsDialogClose} />
     </div>
   );
 }

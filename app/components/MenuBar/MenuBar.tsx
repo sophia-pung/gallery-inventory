@@ -55,6 +55,7 @@ const listsMenuItems: MenuItem[] = [
 interface MenuBarProps {
   onOpenItemDialog: () => void;
   onOpenFindItemDialog: () => void;
+  onOpenContactsDialog: () => void;
 }
 
 const printMenuItems: MenuItem[] = [
@@ -127,10 +128,13 @@ const menuConfigs: Record<string, MenuConfig> = {
   },
 };
 
-const MenuBar = ({ onOpenItemDialog, onOpenFindItemDialog }: MenuBarProps) => {
+const MenuBar = ({
+  onOpenItemDialog,
+  onOpenFindItemDialog,
+  onOpenContactsDialog,
+}: MenuBarProps) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
-  const [isItemDialogOpen, setIsItemDialogOpen] = useState(true);
 
   const toggleMenu = (menuName: string) => {
     setActiveMenu(activeMenu === menuName ? null : menuName);
@@ -142,6 +146,8 @@ const MenuBar = ({ onOpenItemDialog, onOpenFindItemDialog }: MenuBarProps) => {
       onOpenItemDialog();
     } else if (itemLabel === "Find Item") {
       onOpenFindItemDialog();
+    } else if (itemLabel === "Contacts") {
+      onOpenContactsDialog();
     }
     setActiveMenu(null);
   };

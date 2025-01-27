@@ -1,0 +1,199 @@
+/* Upper Section Styles */
+.upper-section {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.contact-details {
+  padding: 8px;
+  width: 400px;
+}
+
+.contact-id {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.code-label {
+  margin-left: 8px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 5px 2px;
+  margin: 0;
+  padding: 0;
+}
+
+.checkbox-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+}
+
+/* Address/Phone Tab Styles */
+.address-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.address-section {
+  border: 1px solid #7b7b7b;
+  padding: 8px;
+  background: white;
+}
+
+.address-navigation {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.address-navigation button {
+  padding: 2px 8px;
+  border: 1px solid #7b7b7b;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  font-size: 11px;
+}
+
+.state-input {
+  width: 40px !important;
+}
+
+.phone-section {
+  border: 1px solid #7b7b7b;
+  padding: 8px;
+  background: white;
+}
+
+.phone-header {
+  display: grid;
+  grid-template-columns: 1fr 100px 60px auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.phone-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.phone-entry {
+  display: grid;
+  grid-template-columns: 1fr 100px 60px;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Transaction Tab Styles */
+.transactions-grid table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transactions-grid th,
+.transactions-grid td {
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  text-align: left;
+  font-size: 11px;
+}
+
+.transactions-grid th {
+  background-color: #ece9d8;
+}
+
+/* Notes Tab Styles */
+.notes-content {
+  padding: 8px;
+}
+
+.notes-area {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  font-size: 11px;
+  background: white;
+}
+
+.right-section {
+  top: 16px;
+  right: 16px;
+  width: 200px;
+}
+
+.bottom-div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 12px;
+  align-items: center;
+  height: fit-content;
+  justify-content: space-between;
+}
+
+.top-section,
+.bottom-section {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.top-section {
+  margin-bottom: 50px;
+}
+
+.right-field {
+  display: contents;
+}
+
+.input-field {
+  width: 100%;
+  height: 20px;
+  text-align: right;
+  border: 1px solid #7b7b7b;
+  padding: 1px 4px;
+}
+
+.buttons-tax-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+  align-items: flex-end;
+}
+
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.action-button {
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #7b7b7b;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  font-size: 11px;
+  white-space: nowrap;
+  width: fit-content;
+}

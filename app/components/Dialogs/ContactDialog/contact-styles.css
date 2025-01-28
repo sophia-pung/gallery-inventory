@@ -1,0 +1,229 @@
+/* Upper Section Styles */
+.contact-upper-section {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+}
+
+.contact-details {
+  padding: 8px;
+  width: 400px;
+}
+
+.contact-id {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.code-label {
+  margin-left: 8px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 2px 4px;
+  margin: 0;
+  padding: 0;
+}
+
+.checkbox-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2px;
+}
+
+.contact-form-group .checkbox label {
+  width: auto;
+  text-align: left;
+  display: inline;
+}
+
+.address-navigation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.address-navigation button {
+  padding: 2px 8px;
+  border: 1px solid #808080;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  height: 22px;
+}
+
+.address-navigation span {
+  margin: 0 8px;
+}
+
+.disabled-input {
+  background-color: #dadada;
+}
+
+/* Address/Phone Tab Styles */
+.address-phone-content {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 16px;
+  background: #f0f0f0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.address-section {
+  flex: 2; /* Takes up more space */
+  border: 1px solid #7b7b7b;
+  padding: 8px;
+  background: white;
+}
+
+.phone-section {
+  flex: 1; /* Takes up less space */
+  border: 1px solid #7b7b7b;
+  padding: 8px;
+  background: white;
+}
+/* Transaction Tab Styles */
+.contact-transactions-grid table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contact-transactions-grid th,
+.contact-transactions-grid td {
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  text-align: left;
+  font-size: 11px;
+}
+
+.contact-transactions-grid th {
+  background-color: #ece9d8;
+}
+
+/* Notes Tab Styles */
+.notes-content {
+  padding: 8px;
+}
+
+.notes-area {
+  width: 100%;
+  resize: vertical;
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  font-size: 11px;
+  background: white;
+}
+
+.right-section {
+  top: 16px;
+  right: 16px;
+  width: 200px;
+}
+
+.bottom-div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 12px;
+  align-items: center;
+  height: fit-content;
+  justify-content: space-between;
+}
+
+.contact-top-section,
+.bottom-section {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 8px;
+  align-items: center;
+}
+
+.contact-top-section {
+  margin-bottom: 50px;
+}
+
+.right-field {
+  display: contents;
+}
+
+.contact-input-field {
+  height: 20px;
+  text-align: right;
+  border: 1px solid #7b7b7b;
+  padding: 1px 4px;
+}
+
+.contact-input-field.mailing {
+  flex: 0 0 150px;
+  text-align: left;
+}
+
+.buttons-tax-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+  align-items: flex-end;
+}
+
+.button-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.action-button {
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #7b7b7b;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  font-size: 11px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+/* .contact-form-group .checkbox label {
+  width: auto;
+  text-align: left;
+  display: inline;
+} */
+
+.contact-form-group {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.contact-form-group label {
+  width: 80px;
+  text-align: right;
+  font-weight: 600;
+  text-align: right;
+}
+
+.tab-section {
+  border-top: 1px solid #7b7b7b;
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 0 8px;
+  margin-bottom: -1px;
+  position: relative;
+}

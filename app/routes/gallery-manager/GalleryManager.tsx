@@ -41,7 +41,6 @@ export default function GalleryManager() {
   const handleContactsDialogOpen = () => {
     setIsContactsDialogOpen(true);
   };
-
   const handleContactsDialogClose = () => {
     setIsContactsDialogOpen(false);
   };

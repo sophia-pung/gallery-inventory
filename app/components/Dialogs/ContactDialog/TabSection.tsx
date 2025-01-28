@@ -32,7 +32,7 @@ const TabSection = () => {
               </div>
 
               <div className="address-form">
-                <div className="form-group">
+                <div className="contact-form-group">
                   <label>Type</label>
                   <select className="input-field mailing">
                     <option>Mailing</option>
@@ -43,7 +43,7 @@ const TabSection = () => {
                   </div>
                 </div>
 
-                <div className="form-group address-1">
+                <div className="contact-form-group address-1">
                   <label>Address 1</label>
                   <input
                     type="text"
@@ -52,17 +52,17 @@ const TabSection = () => {
                   />
                 </div>
 
-                <div className="form-group address-3">
+                <div className="contact-form-group address-3">
                   <label>Address 2</label>
                   <input type="text" className="input-field" />
                 </div>
 
-                <div className="form-group address-3">
+                <div className="contact-form-group address-3">
                   <label>Address 3</label>
                   <input type="text" className="input-field" />
                 </div>
 
-                <div className="form-group">
+                <div className="contact-form-group">
                   <label>City / State</label>
                   <div className="city-state-inputs">
                     <input
@@ -78,7 +78,7 @@ const TabSection = () => {
                   </div>
                 </div>
 
-                <div className="form-group">
+                <div className="contact-form-group">
                   <label>Zip/Country</label>
                   <div className="zip-country-inputs">
                     <input
@@ -143,8 +143,8 @@ const TabSection = () => {
 
       case "Transactions":
         return (
-          <div className="transactions-tab">
-            <div className="transactions-grid">
+          <div className="contact-transactions-tab">
+            <div className="contact-transactions-grid">
               <table>
                 <thead>
                   <tr>
@@ -208,7 +208,7 @@ const TabSection = () => {
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`${tab} ${activeTab === tab ? "active" : ""}`}
+            className={`tab ${activeTab === tab ? "active" : ""}`}
             onClick={() => setActiveTab(tab)}
           >
             {tab}

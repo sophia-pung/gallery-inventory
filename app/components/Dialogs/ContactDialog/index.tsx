@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { X, Minus, Square } from "lucide-react";
 import TabSection from "./TabSection";
 import UpperSection from "./UpperSection";
-<<<<<<< HEAD
-import "./styles.css";
-=======
 import "./contact-styles.css";
->>>>>>> fa71793 (fixed styling overlap)
 
 interface ContactDialogProps {
   isOpen: boolean;

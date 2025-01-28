@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { ChevronUp, ChevronDown } from "lucide-react";
+
+interface TableData {
+  phoneNumber: string;
+  type: string;
+  main: string;
+}
 
 const TabSection = () => {
   const [activeTab, setActiveTab] = useState("Address/Phone");
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const tabs = [
     "Address/Phone",
@@ -12,6 +20,32 @@ const TabSection = () => {
     "Payments",
     "Online",
   ];
+
+  const data: TableData[] = [
+    { phoneNumber: "(917) 952-2519", type: "Mailing", main: "Y" },
+    { phoneNumber: "", type: "", main: "" },
+    { phoneNumber: "", type: "", main: "" },
+    { phoneNumber: "", type: "", main: "" },
+    { phoneNumber: "", type: "", main: "" },
+    { phoneNumber: "", type: "", main: "" },
+    { phoneNumber: "", type: "", main: "" },
+    { phoneNumber: "", type: "", main: "" },
+    { phoneNumber: "", type: "", main: "" },
+  ];
+
+  const headers = ["Phone Number", "Type", "Main?"];
+
+  const handleScrollUp = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop -= 16; // One row height
+    }
+  };
+
+  const handleScrollDown = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop += 16; // One row height
+    }
+  };
 
   const renderContent = () => {
     switch (activeTab) {
@@ -94,28 +128,54 @@ const TabSection = () => {
                   </div>
                 </div>
               </div>
+              <div className="button-row">
+                <button>Clip Address</button>
+                <button>Clip Address &amp; Phone</button>
+              </div>
             </div>
-
-            <div className="phone-section">
-              <div className="phone-header">
-                <span>Phone Number</span>
-                <span>Type</span>
-                <span>Main</span>
-                <div className="phone-buttons">
-                  <button>Add Phone</button>
-                  <button>Delete Phone</button>
+            <div className="phone-table-wrapper">
+              <div className="table-container">
+                <table className="phone-table">
+                  <thead>
+                    <tr>
+                      {headers.map((header) => (
+                        <th key={header} className="header">
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                </table>
+                <div
+                  className="table-scroll-container"
+                  ref={scrollContainerRef}
+                >
+                  <table className="phone-table">
+                    <tbody>
+                      {data.map((row, index) => (
+                        <tr key={index}>
+                          <td className="row-height">{row.phoneNumber}</td>
+                          <td className="row-height">{row.type}</td>
+                          <td className="row-height">{row.main}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
                 </div>
               </div>
-              <div className="phone-grid">
-                <input
-                  type="text"
-                  className="input-field"
-                  defaultValue="(917) 952-2519"
-                />
-                <select className="input-field">
-                  <option>Mailing</option>
-                </select>
-                <input type="checkbox" defaultChecked />
+              <div className="scroll-controls">
+                <button
+                  onClick={handleScrollUp}
+                  className="scroll-button scroll-button-up"
+                >
+                  <ChevronUp size={12} />
+                </button>
+                <button
+                  onClick={handleScrollDown}
+                  className="scroll-button scroll-button-down"
+                >
+                  <ChevronDown size={12} />
+                </button>
               </div>
             </div>
           </div>

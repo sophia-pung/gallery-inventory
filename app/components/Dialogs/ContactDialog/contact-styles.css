@@ -83,14 +83,14 @@
 }
 
 .address-section {
-  flex: 2; /* Takes up more space */
+  flex: 0 0 425px;
   border: 1px solid #7b7b7b;
   padding: 8px;
   background: white;
 }
 
 .phone-section {
-  flex: 1; /* Takes up less space */
+  flex: 0 0 150px;
   border: 1px solid #7b7b7b;
   padding: 8px;
   background: white;
@@ -226,4 +226,106 @@
   padding: 0 8px;
   margin-bottom: -1px;
   position: relative;
+}
+
+.phone-table-wrapper {
+  width: 400px;
+  height: 150px;
+  border: 1px solid #7b7b7b;
+  background-color: white;
+}
+
+.table-scroll-container {
+  height: calc(150px - 22px); /* Total height minus header height */
+  overflow-y: auto;
+}
+.phone-table-wrapper {
+  width: 400px;
+  height: 150px;
+  border: 1px solid #7b7b7b;
+  background-color: white;
+  display: flex;
+}
+
+.table-container {
+  flex: 1;
+}
+
+.table-scroll-container {
+  height: calc(150px - 22px);
+  overflow-y: auto;
+}
+
+.phone-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: white;
+}
+
+td.row-height {
+  height: 16px;
+  font-size: 11px;
+  padding: 0 4px;
+  border: 1px solid #7b7b7b;
+  background-color: white;
+}
+
+.phone-table th:first-child,
+td.row-height:first-child {
+  width: 50px;
+}
+
+.phone-table th:nth-child(2),
+td.row-height:nth-child(2) {
+  width: 40px;
+}
+
+.phone-table th:last-child,
+td.row-height:last-child {
+  width: 18px;
+}
+
+.phone-table th {
+  padding: 0 4px;
+  background-color: #ece9d8;
+  font-weight: normal;
+  font-size: 11px;
+  border: 1px solid #7b7b7b;
+}
+
+th.header {
+  height: 22px;
+}
+
+.scroll-controls {
+  width: 16px;
+  border-left: 1px solid #7b7b7b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scroll-button {
+  height: 16px;
+  width: 16px;
+  border: none;
+  background: white;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.scroll-button:hover {
+  background-color: #f0f0f0;
+}
+
+.scroll-button-up {
+  border-bottom: 1px solid #7b7b7b;
+}
+
+.scroll-button-down {
+  border-top: 1px solid #7b7b7b;
 }

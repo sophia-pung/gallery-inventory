@@ -364,3 +364,183 @@ th.header {
   min-width: 40px;
   text-align: right;
 }
+
+.contact-notes-tab {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-section {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.date-fields {
+  display: grid;
+  grid-template-columns: auto 100px auto 100px;
+  gap: 8px;
+  align-items: center;
+}
+
+.notes-area {
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-size: 11px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  background: white;
+}
+
+.prints-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.prints-box {
+  border: 1px inset #808080;
+  height: 75px;
+  width: 100%;
+  background: white;
+  resize: none;
+  padding: 4px;
+  font-size: 11px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+}
+
+.prints-box::after {
+  content: "▼";
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  font-size: 8px;
+}
+
+.field-label {
+  text-align: right;
+  font-size: 11px;
+}
+
+.notes-input-field {
+  border: 1px inset #808080;
+  height: 20px;
+  border: 1px solid #7b7b7b;
+  padding: 1px 4px;
+  font-size: 11px;
+}
+
+.notes-field-label {
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.date-input-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px inset #808080;
+  padding: 1px 4px;
+  background: white;
+  height: 20px;
+}
+
+.date-input-group span {
+  color: #808080;
+  font-size: 11px;
+}
+
+.date-input {
+  width: 20px;
+  border: none;
+  outline: none;
+  font-size: 11px;
+  padding: 0;
+}
+
+.date-input.year {
+  width: 40px;
+}
+
+.date-input::-webkit-outer-spin-button,
+.date-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.contacts-transactions-tab {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contacts-transactions-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.new-sale-button {
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #7b7b7b;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.radio-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.contacts-transactions-grid {
+  border: 1px solid #7b7b7b;
+  overflow: auto;
+}
+
+.contacts-transactions-grid table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.contacts-transactions-grid th {
+  background-color: #ece9d8;
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-weight: normal;
+  text-align: left;
+  position: sticky;
+  top: 0;
+}
+
+.contacts-transactions-grid td {
+  border: 1px solid #7b7b7b;
+  background: white;
+  height: 20px;
+}
+
+.contacts-transactions-grid td.money {
+  text-align: right;
+}
+
+.contacts-transactions-grid tr:hover td {
+  background-color: #e8e8e8;
+}

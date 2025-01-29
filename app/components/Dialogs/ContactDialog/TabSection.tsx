@@ -1,27 +1,32 @@
 import React, { useRef, useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
-interface TableData {
+interface PhoneTableData {
   phoneNumber: string;
   type: string;
   main: string;
+}
+
+interface TransactionTableData {
+  transNum: string;
+  date: string;
+  title: string;
+  edType: string;
+  itemPrice: string;
+  qty: string;
+  itemTotal: string;
+  transTotal: string;
+  paidInFull: string;
+  transLoc: string;
 }
 
 const TabSection = () => {
   const [activeTab, setActiveTab] = useState("Address/Phone");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const tabs = [
-    "Address/Phone",
-    "Notes",
-    "General",
-    "Actions",
-    "Transactions",
-    "Payments",
-    "Online",
-  ];
+  const tabs = ["Address/Phone", "Notes", "Transactions"];
 
-  const data: TableData[] = [
+  const data: PhoneTableData[] = [
     { phoneNumber: "(917) 952-2519", type: "Mailing", main: "Y" },
     { phoneNumber: "", type: "", main: "" },
     { phoneNumber: "", type: "", main: "" },
@@ -31,6 +36,93 @@ const TabSection = () => {
     { phoneNumber: "", type: "", main: "" },
     { phoneNumber: "", type: "", main: "" },
     { phoneNumber: "", type: "", main: "" },
+  ];
+
+  const transactionData: TransactionTableData[] = [
+    {
+      transNum: "5012",
+      date: "10/12/2015",
+      title: "SHIPPING (FEDEX)",
+      edType: "0 Sale",
+      itemPrice: "50.00",
+      qty: "1",
+      itemTotal: "50.00",
+      transTotal: "2250.00",
+      paidInFull: "10/12/2015",
+      transLoc: "Photography West G",
+    },
+    {
+      transNum: "5012",
+      date: "10/12/2015",
+      title: "THIRTEEN RIPPLES",
+      edType: "0 Sale",
+      itemPrice: "600.00",
+      qty: "1",
+      itemTotal: "600.00",
+      transTotal: "2250.00",
+      paidInFull: "10/12/2015",
+      transLoc: "Photography West G",
+    },
+    {
+      transNum: "5012",
+      date: "10/12/2015",
+      title: "BLACK ROCKS, C",
+      edType: "0 Sale",
+      itemPrice: "1600.00",
+      qty: "1",
+      itemTotal: "1600.00",
+      transTotal: "2250.00",
+      paidInFull: "10/12/2015",
+      transLoc: "Photography West G",
+    },
+    {
+      transNum: "",
+      date: "",
+      title: "",
+      edType: "",
+      itemPrice: "",
+      qty: "",
+      itemTotal: "",
+      transTotal: "",
+      paidInFull: "",
+      transLoc: "",
+    },
+    {
+      transNum: "",
+      date: "",
+      title: "",
+      edType: "",
+      itemPrice: "",
+      qty: "",
+      itemTotal: "",
+      transTotal: "",
+      paidInFull: "",
+      transLoc: "",
+    },
+    {
+      transNum: "",
+      date: "",
+      title: "",
+      edType: "",
+      itemPrice: "",
+      qty: "",
+      itemTotal: "",
+      transTotal: "",
+      paidInFull: "",
+      transLoc: "",
+    },
+    {
+      transNum: "",
+      date: "",
+      title: "",
+      edType: "",
+      itemPrice: "",
+      qty: "",
+      itemTotal: "",
+      transTotal: "",
+      paidInFull: "",
+      transLoc: "",
+    },
   ];
 
   const headers = ["Phone Number", "Type", "Main?"];
@@ -192,28 +284,98 @@ const TabSection = () => {
 
       case "Notes":
         return (
-          <div className="notes-tab">
-            <div className="notes-section">
-              <h3>General Notes</h3>
-              <textarea className="notes-area" rows={6} />
-            </div>
-          </div>
-        );
+          <div className="contact-notes-tab">
+            <div className="info-section">
+              <label className="notes-field-label">Source</label>
+              <input type="text" className="notes-input-field" />
 
-      case "General":
-        return (
-          <div className="general-tab">
-            <div className="general-content">
-              <h3>General Information</h3>
-              {/* Add general tab content */}
+              <div className="date-fields">
+                <label className="notes-field-label">Birth</label>
+                <div className="date-input-group">
+                  <input
+                    type="text"
+                    className="date-input"
+                    maxLength={2}
+                    placeholder="MM"
+                  />
+                  <span>/</span>
+                  <input
+                    type="text"
+                    className="date-input"
+                    maxLength={2}
+                    placeholder="DD"
+                  />
+                  <span>/</span>
+                  <input
+                    type="text"
+                    className="date-input year"
+                    maxLength={4}
+                    placeholder="YYYY"
+                  />
+                </div>
+                <label className="notes-field-label">Death</label>
+                <div className="date-input-group">
+                  <input
+                    type="text"
+                    className="date-input"
+                    maxLength={2}
+                    placeholder="MM"
+                  />
+                  <span>/</span>
+                  <input
+                    type="text"
+                    className="date-input"
+                    maxLength={2}
+                    placeholder="DD"
+                  />
+                  <span>/</span>
+                  <input
+                    type="text"
+                    className="date-input year"
+                    maxLength={4}
+                    placeholder="YYYY"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <textarea className="notes-area" placeholder="General notes..." />
+
+            <div className="prints-section">
+              <div>
+                <div className="notes-field-label">Prints for Sale</div>
+                <textarea className="prints-box"></textarea>
+              </div>
+              <div>
+                <div className="notes-field-label">Prints Wanted</div>
+                <textarea className="prints-box"></textarea>
+              </div>
             </div>
           </div>
         );
 
       case "Transactions":
         return (
-          <div className="contact-transactions-tab">
-            <div className="contact-transactions-grid">
+          <div className="contacts-transactions-tab">
+            <div className="contacts-transactions-header">
+              <button className="new-sale-button">New Sale</button>
+              <div className="radio-group">
+                <label className="radio-label">
+                  <input type="radio" name="transType" defaultChecked />
+                  Customer
+                </label>
+                <label className="radio-label">
+                  <input type="radio" name="transType" />
+                  Artist
+                </label>
+                <label className="radio-label">
+                  <input type="radio" name="transType" />
+                  Vendor
+                </label>
+              </div>
+            </div>
+
+            <div className="contacts-transactions-grid">
               <table>
                 <thead>
                   <tr>
@@ -225,44 +387,28 @@ const TabSection = () => {
                     <th>Qty</th>
                     <th>Item Total</th>
                     <th>Trans Total</th>
-                    <th>Paid in Full</th>
+                    <th>Paid In Full</th>
                     <th>Trans Loc</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {[...Array(8)].map((_, index) => (
+                  {transactionData.map((row, index) => (
                     <tr key={index}>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
-                      <td>&nbsp;</td>
+                      <td>{row.transNum}</td>
+                      <td>{row.date}</td>
+                      <td>{row.title}</td>
+                      <td>{row.edType}</td>
+                      <td className="money">{row.itemPrice}</td>
+                      <td>{row.qty}</td>
+                      <td className="money">{row.itemTotal}</td>
+                      <td className="money">{row.transTotal}</td>
+                      <td>{row.paidInFull}</td>
+                      <td>{row.transLoc}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
-        );
-
-      case "Payments":
-        return (
-          <div className="payments-tab">
-            <div className="payments-content">
-              {/* Add payments tab content */}
-            </div>
-          </div>
-        );
-
-      case "Online":
-        return (
-          <div className="online-tab">
-            <div className="online-content">{/* Add online tab content */}</div>
           </div>
         );
 

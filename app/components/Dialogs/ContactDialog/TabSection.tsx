@@ -128,54 +128,63 @@ const TabSection = () => {
                   </div>
                 </div>
               </div>
-              <div className="button-row">
+              <div className="contact-button-row">
                 <button>Clip Address</button>
                 <button>Clip Address &amp; Phone</button>
               </div>
             </div>
-            <div className="phone-table-wrapper">
-              <div className="table-container">
-                <table className="phone-table">
-                  <thead>
-                    <tr>
-                      {headers.map((header) => (
-                        <th key={header} className="header">
-                          {header}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                </table>
-                <div
-                  className="table-scroll-container"
-                  ref={scrollContainerRef}
-                >
+            <div className="contact-phone">
+              <div className="phone-buttons">
+                <button>Add Phone</button>
+                <button>Delete Phone</button>
+              </div>
+              <div className="phone-table-wrapper">
+                <div className="table-container">
                   <table className="phone-table">
-                    <tbody>
-                      {data.map((row, index) => (
-                        <tr key={index}>
-                          <td className="row-height">{row.phoneNumber}</td>
-                          <td className="row-height">{row.type}</td>
-                          <td className="row-height">{row.main}</td>
-                        </tr>
-                      ))}
-                    </tbody>
+                    <thead>
+                      <tr>
+                        {headers.map((header) => (
+                          <th key={header} className="header">
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
                   </table>
+                  <div
+                    className="table-scroll-container"
+                    ref={scrollContainerRef}
+                  >
+                    <table className="phone-table">
+                      <tbody>
+                        {data.map((row, index) => (
+                          <tr key={index}>
+                            <td className="row-height">{row.phoneNumber}</td>
+                            <td className="row-height">{row.type}</td>
+                            <td className="row-height">{row.main}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className="scroll-controls">
+                  <button
+                    onClick={handleScrollUp}
+                    className="scroll-button scroll-button-up"
+                  >
+                    <ChevronUp size={12} />
+                  </button>
+                  <button
+                    onClick={handleScrollDown}
+                    className="scroll-button scroll-button-down"
+                  >
+                    <ChevronDown size={12} />
+                  </button>
                 </div>
               </div>
-              <div className="scroll-controls">
-                <button
-                  onClick={handleScrollUp}
-                  className="scroll-button scroll-button-up"
-                >
-                  <ChevronUp size={12} />
-                </button>
-                <button
-                  onClick={handleScrollDown}
-                  className="scroll-button scroll-button-down"
-                >
-                  <ChevronDown size={12} />
-                </button>
+              <div className="contact-button-row">
+                <button>Clip Phone</button>
               </div>
             </div>
           </div>

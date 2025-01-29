@@ -67,6 +67,14 @@
   margin: 0 8px;
 }
 
+.phone-buttons button {
+  margin: 5px;
+  padding: 0px 4px;
+  border: 1px solid #808080;
+  background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+  height: 22px;
+}
+
 .disabled-input {
   background-color: #dadada;
 }
@@ -77,14 +85,12 @@
   flex-direction: row;
   gap: 24px;
   padding: 16px;
-  background: #f0f0f0;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .address-section {
   flex: 0 0 425px;
-  border: 1px solid #7b7b7b;
   padding: 8px;
   background: white;
 }
@@ -228,19 +234,12 @@
   position: relative;
 }
 
-.phone-table-wrapper {
-  width: 400px;
-  height: 150px;
-  border: 1px solid #7b7b7b;
-  background-color: white;
-}
-
 .table-scroll-container {
   height: calc(150px - 22px); /* Total height minus header height */
   overflow-y: auto;
 }
 .phone-table-wrapper {
-  width: 400px;
+  width: 230px;
   height: 150px;
   border: 1px solid #7b7b7b;
   background-color: white;
@@ -278,7 +277,7 @@ td.row-height:first-child {
 
 .phone-table th:nth-child(2),
 td.row-height:nth-child(2) {
-  width: 40px;
+  width: 30px;
 }
 
 .phone-table th:last-child,
@@ -306,26 +305,62 @@ th.header {
   justify-content: space-between;
 }
 
-.scroll-button {
-  height: 16px;
-  width: 16px;
-  border: none;
-  background: white;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.contact-button-row button {
+  margin: 5px;
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #7b7b7b;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  font-size: 11px;
+  white-space: nowrap;
+  width: fit-content;
   cursor: pointer;
+}
+
+.contact-button-row button:hover {
+  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+}
+
+.contact-button-row button:active {
+  background: linear-gradient(to bottom, #dfdfdf, #ffffff);
 }
 
 .scroll-button:hover {
   background-color: #f0f0f0;
 }
 
-.scroll-button-up {
-  border-bottom: 1px solid #7b7b7b;
-}
-
 .scroll-button-down {
   border-top: 1px solid #7b7b7b;
+}
+
+.contact-phone {
+  display: flex;
+  flex-direction: column;
+}
+
+.inventory-header {
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+}
+
+.inventory-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.inventory-label {
+  color: #000;
+}
+
+.inventory-count {
+  background: #dadada;
+  border: 1px solid #7b7b7b;
+  padding: 1px 4px;
+  min-width: 40px;
+  text-align: right;
 }

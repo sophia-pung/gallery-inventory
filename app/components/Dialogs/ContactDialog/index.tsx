@@ -12,8 +12,17 @@ interface ContactDialogProps {
 const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
   const [isMaximized, setIsMaximized] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
   const [isClosing, setIsClosing] = useState(false);
+
+  const inventoryItems = [
+    { label: "Contacts", count: "6117" },
+    { label: "Artists", count: "135" },
+    { label: "Vendors", count: "283" },
+    { label: "Customers", count: "5889" },
+    { label: "Locations", count: "1" },
+    { label: "Galleries", count: "19" },
+    { label: "Designers", count: "2" },
+  ];
 
   const handleMinimize = () => {
     console.log("minimize");
@@ -28,30 +37,28 @@ const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
 
   const handleClose = () => {
     setIsClosing(true);
-    setTimeout(onClose, 300);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 300);
   };
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 850) {
-        // Start closing animation
+      if (window.innerWidth < 850 && isOpen) {
         setIsClosing(true);
-        // Wait for animation to finish before hiding
         setTimeout(() => {
-          setIsVisible(false);
+          onClose();
           setIsClosing(false);
-        }, 300); // Match this with CSS transition duration
-      } else {
-        setIsVisible(true);
-        setIsClosing(false);
+        }, 300);
       }
     };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [isOpen, onClose]);
 
-  if (!isOpen || (!isVisible && !isClosing)) return null;
+  if (!isOpen) return null;
 
   return (
     <div className={`overlay ${isClosing ? "closing" : ""}`}>
@@ -68,10 +75,16 @@ const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
             </span>
           </div>
           <div className="control-buttons">
-            <button className="control-button minimize" onClick={() => {}}>
+            <button
+              className="control-button minimize"
+              onClick={handleMinimize}
+            >
               <Minus size={10} />
             </button>
-            <button className="control-button maximize" onClick={() => {}}>
+            <button
+              className="control-button maximize"
+              onClick={handleMaximize}
+            >
               <Square size={10} />
             </button>
             <button className="control-button close" onClick={handleClose}>
@@ -86,16 +99,13 @@ const ContactDialog = ({ isOpen, onClose }: ContactDialogProps) => {
         </div>
 
         <div className="bottom-bar">
-          <div className="status">
-            <span className="status-text">Records: 6117 of 6117</span>
-          </div>
-          <div className="sort-options">
-            <span>Sort by:</span>
-            <select className="sort-select">
-              <option>Name</option>
-              <option>Company</option>
-              <option>City</option>
-            </select>
+          <div className="inventory-header">
+            {inventoryItems.map((item, index) => (
+              <div key={index} className="inventory-item">
+                <span className="inventory-label"># {item.label}</span>
+                <span className="inventory-count">{item.count}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

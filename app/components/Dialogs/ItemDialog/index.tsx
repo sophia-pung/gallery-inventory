@@ -28,23 +28,18 @@ const ItemDialog = ({ isOpen, onClose }: ItemDialogProps) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 850) {
-        // Start closing animation
+      if (window.innerWidth < 850 && isOpen) {
         setIsClosing(true);
-        // Wait for animation to finish before hiding
         setTimeout(() => {
-          setIsVisible(false);
+          onClose();
           setIsClosing(false);
-        }, 300); // Match this with CSS transition duration
-      } else {
-        setIsVisible(true);
-        setIsClosing(false);
+        }, 300);
       }
     };
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [isOpen, onClose]);
 
   if (!isOpen || (!isVisible && !isClosing)) return null;
 

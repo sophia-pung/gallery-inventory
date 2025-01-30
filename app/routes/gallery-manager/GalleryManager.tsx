@@ -7,6 +7,7 @@ import "./styles.css";
 import ItemDialog from "../../components/Dialogs/ItemDialog/index";
 import FindItemDialog from "../../components/Dialogs/FindItemDialog/index";
 import ContactsDialog from "../../components/Dialogs/ContactDialog";
+import TransactionsDialog from "~/components/Dialogs/TransactionsDialog";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -19,6 +20,8 @@ export default function GalleryManager() {
   const [isItemDialogOpen, setIsItemDialogOpen] = useState(false);
   const [isFindItemDialogOpen, setIsFindItemDialogOpen] = useState(false);
   const [isContactsDialogOpen, setIsContactsDialogOpen] = useState(false);
+  // prettier-ignore
+  const [isTransactionsDialogOpen, setIsTransactionsDialogOpen] = useState(false);
 
   const handleItemDialogOpen = () => {
     setIsItemDialogOpen(true);
@@ -45,6 +48,13 @@ export default function GalleryManager() {
     setIsContactsDialogOpen(false);
   };
 
+  const handleTransactionsDialogOpen = () => {
+    setIsTransactionsDialogOpen(true);
+  };
+  const handleTransactionsDialogClose = () => {
+    setIsTransactionsDialogOpen(false);
+  };
+
   return (
     <div>
       <div>
@@ -53,6 +63,7 @@ export default function GalleryManager() {
           onOpenItemDialog={handleItemDialogOpen}
           onOpenFindItemDialog={handleFindItemDialogOpen}
           onOpenContactsDialog={handleContactsDialogOpen}
+          onOpenTransactionsDialog={handleTransactionsDialogOpen}
         />
       </div>
       <div className="gallery-content">
@@ -83,6 +94,8 @@ export default function GalleryManager() {
       <ItemDialog isOpen={isItemDialogOpen} onClose={handleItemDialogClose} />
       {/* prettier-ignore */}
       <ContactsDialog isOpen={isContactsDialogOpen} onClose={handleContactsDialogClose} />
+      {/* prettier-ignore */}
+      <TransactionsDialog isOpen={isTransactionsDialogOpen} onClose={handleTransactionsDialogClose} />
     </div>
   );
 }

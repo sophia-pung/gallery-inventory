@@ -55,6 +55,7 @@ interface MenuBarProps {
   onOpenItemDialog: () => void;
   onOpenFindItemDialog: () => void;
   onOpenContactsDialog: () => void;
+  onOpenTransactionsDialog: () => void;
 }
 
 const printMenuItems: MenuItem[] = [
@@ -131,6 +132,7 @@ const MenuBar = ({
   onOpenItemDialog,
   onOpenFindItemDialog,
   onOpenContactsDialog,
+  onOpenTransactionsDialog,
 }: MenuBarProps) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
@@ -147,6 +149,9 @@ const MenuBar = ({
       onOpenFindItemDialog();
     } else if (itemLabel === "Contacts") {
       onOpenContactsDialog();
+    } else if (itemLabel === "Transactions") {
+      console.log("transactions");
+      onOpenTransactionsDialog();
     }
     setActiveMenu(null);
   };

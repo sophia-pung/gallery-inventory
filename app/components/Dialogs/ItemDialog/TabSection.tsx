@@ -289,8 +289,8 @@ const TabSection = () => {
 
       case "Transactions":
         return (
-          <div className="transactions-tab">
-            <div className="transactions-grid">
+          <div className="item-transactions-tab">
+            <div className="item-transactions-grid">
               <table>
                 <thead>
                   <tr>

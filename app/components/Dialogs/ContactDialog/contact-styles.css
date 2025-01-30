@@ -140,7 +140,7 @@
   width: 200px;
 }
 
-.bottom-div {
+.contact-bottom-div {
   display: flex;
   flex-direction: row;
   gap: 24px;
@@ -151,7 +151,7 @@
 }
 
 .contact-top-section,
-.bottom-section {
+.contact-bottom-section {
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 8px;

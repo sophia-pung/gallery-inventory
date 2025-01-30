@@ -58,7 +58,7 @@ const UpperSection: React.FC = () => {
           <input type="text" className="contact-input-field" />
         </div>
 
-        <div className="bottom-div">
+        <div className="contact-bottom-div">
           <div className="checkbox-grid">
             <div className="checkbox">
               <input type="checkbox" id="customer" defaultChecked />
@@ -116,7 +116,7 @@ const UpperSection: React.FC = () => {
             />
           </div>
         </div>
-        <div className="bottom-section">
+        <div className="contact-bottom-section">
           <div className="right-field">
             <label>Terms</label>
             <input

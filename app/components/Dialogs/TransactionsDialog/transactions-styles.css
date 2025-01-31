@@ -113,11 +113,6 @@ body {
   border-color: #980000;
 }
 
-.content-section {
-  background: #ece9d8;
-  padding: 16px;
-}
-
 .upper-section {
   display: flex;
   gap: 25px;
@@ -277,7 +272,7 @@ body {
 /* Content area */
 .tab-content {
   background: white;
-  padding: 8px;
+  padding: 0px;
 }
 
 .item-entry-content {
@@ -603,7 +598,7 @@ label {
   display: flex;
   flex-direction: row;
   gap: 24px;
-  margin-bottom: 16px;
+  margin-bottom: 2px;
 }
 
 .field-row {
@@ -703,4 +698,230 @@ label {
 .transaction-number {
   text-align: left;
   justify-content: left;
+}
+
+/* top */
+
+/* Client Tab Styles */
+.client-content {
+  padding: 4px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.client-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.client-search label {
+  width: 100px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.client-details {
+  display: grid;
+  margin-bottom: 4px;
+}
+
+.name-inputs {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.input-field.title-input {
+  width: 45px;
+  flex: 0 0 45px;
+}
+
+.first-input {
+  width: 150px;
+}
+
+.last-input {
+  flex: 1;
+}
+
+.addresses-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.address-section {
+  display: grid;
+}
+
+.address-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.address-type span {
+  font-size: 11px;
+}
+
+.address-type select {
+  width: 100px;
+}
+
+.city-state-inputs {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.city-input {
+  flex: 1;
+}
+
+.state-input {
+  width: 50px;
+}
+
+.zip-country-inputs {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.zip-input {
+  width: 100px;
+}
+
+.country-input {
+  flex: 1;
+}
+
+.phone-input-group {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.client-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.expires-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.expires-group label {
+  font-size: 11px;
+}
+
+.date-input {
+  width: 24px;
+  text-align: center;
+}
+
+.time-select {
+  width: 64px;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.right-section label {
+  font-size: 11px;
+}
+
+.tax-input {
+  width: 128px;
+}
+
+/* Shared Input Styles */
+.input-field {
+  height: 20px;
+  border: 1px solid #7b7b7b;
+  padding: 1px 4px;
+  font-size: 11px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+}
+
+.action-button {
+  height: 22px;
+  padding: 0 8px;
+  border: 1px solid #7b7b7b;
+  border-radius: 3px;
+  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
+  font-size: 11px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+}
+
+.action-button:active {
+  background: linear-gradient(to bottom, #dfdfdf, #ffffff);
+}
+
+/* Form Group Styles (reusing existing styles) */
+.contact-form-group {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.contact-form-group label {
+  width: 80px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.client-layout {
+  display: flex;
+  gap: 32px;
+  padding: 8px;
+}
+
+.client-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.client-right-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 100px;
+  padding-top: 8px;
+}
+
+.top-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bottom-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

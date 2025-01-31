@@ -1099,3 +1099,93 @@ label {
   resize: none;
   background: white;
 }
+
+.staff-content {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.staff-centered {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.staff-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.staff-table-wrapper {
+  width: 400px;
+  height: 150px;
+  border: 1px solid #7b7b7b;
+  background-color: white;
+  display: flex;
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: white;
+}
+
+.staff-table td.row-height {
+  height: 16px;
+  font-size: 11px;
+  padding: 0 4px;
+  border: 1px solid #7b7b7b;
+  background-color: white;
+}
+
+.staff-table th {
+  padding: 0 4px;
+  background-color: #ece9d8;
+  font-weight: normal;
+  font-size: 11px;
+  border: 1px solid #7b7b7b;
+}
+
+.staff-table th.header {
+  height: 22px;
+}
+
+/* Column widths */
+.staff-table th:first-child,
+.staff-table td:first-child {
+  width: 200px;
+}
+
+.staff-table th:nth-child(2),
+.staff-table td:nth-child(2) {
+  width: 100px;
+}
+
+.staff-table th:last-child,
+.staff-table td:last-child {
+  width: 50px;
+}
+
+.commission-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.commission-date span {
+  font-size: 11px;
+}
+
+.commission-date input {
+  background-color: #dadada;
+  width: 150px;
+}
+
+.commission-date .disabled-input {
+  width: 120px;
+  background-color: #dadada;
+}

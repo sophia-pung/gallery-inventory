@@ -1,5 +1,6 @@
 // TabSection.tsx
 import React, { useRef, useState } from "react";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 interface ItemEntryData {
   scanCode: string;
@@ -24,6 +25,12 @@ interface PaymentData {
   exp: string;
   cardName: string;
   authDL: string;
+}
+
+interface StaffData {
+  staffName: string;
+  percentOfSale: string;
+  main: string;
 }
 
 const data: ItemEntryData[] = [
@@ -290,6 +297,51 @@ const paymentHeaders = [
   "Card Name",
   "Auth/D.L",
 ];
+
+const staffData: StaffData[] = [
+  {
+    staffName: "Julia",
+    percentOfSale: "100.000",
+    main: "Y",
+  },
+  {
+    staffName: "",
+    percentOfSale: "",
+    main: "",
+  },
+  {
+    staffName: "",
+    percentOfSale: "",
+    main: "",
+  },
+  {
+    staffName: "",
+    percentOfSale: "",
+    main: "",
+  },
+  {
+    staffName: "",
+    percentOfSale: "",
+    main: "",
+  },
+  {
+    staffName: "",
+    percentOfSale: "",
+    main: "",
+  },
+  {
+    staffName: "",
+    percentOfSale: "",
+    main: "",
+  },
+  {
+    staffName: "",
+    percentOfSale: "",
+    main: "",
+  },
+];
+
+const staffHeaders = ["Staff User Name", "% of Sale", "Main?"];
 
 const TabSection = () => {
   const [activeTab, setActiveTab] = useState("Item Entry");
@@ -712,6 +764,59 @@ const TabSection = () => {
                   <div className="notes-header">Transaction Notes</div>
                   <textarea className="notes-textarea" rows={5} />
                 </div>
+              </div>
+            </div>
+          </div>
+        );
+      case "Staff":
+        return (
+          <div className="staff-content">
+            <div className="staff-centered">
+              <div className="staff-actions">
+                <button className="action-button">Edit Staff</button>
+                <button className="action-button">Add Staff</button>
+                <button className="action-button">Delete Staff</button>
+              </div>
+
+              <div className="staff-table-wrapper">
+                <div className="table-container">
+                  <table className="staff-table">
+                    <thead>
+                      <tr>
+                        {staffHeaders.map((header) => (
+                          <th key={header} className="header">
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {staffData.map((row, index) => (
+                        <tr key={index}>
+                          <td className="row-height">{row.staffName}</td>
+                          <td className="row-height text-right">
+                            {row.percentOfSale}
+                          </td>
+                          <td className="row-height">{row.main}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                <div className="scroll-controls">
+                  <button className="scroll-button scroll-button-up">
+                    <ChevronUp size={12} />
+                  </button>
+                  <button className="scroll-button scroll-button-down">
+                    <ChevronDown size={12} />
+                  </button>
+                </div>
+              </div>
+
+              <div className="commission-date">
+                <span>Date Commissions Paid In Full</span>
+                <input type="text" className="input-field" disabled />
+                <button className="action-button">Clear Date</button>
               </div>
             </div>
           </div>

@@ -13,6 +13,19 @@ interface ItemEntryData {
   total: string;
 }
 
+interface PaymentData {
+  dateDue: string;
+  amountDue: string;
+  payType: string;
+  LI: string;
+  amountPaid: string;
+  datePaid: string;
+  cardCheckNum: string;
+  exp: string;
+  cardName: string;
+  authDL: string;
+}
+
 const data: ItemEntryData[] = [
   {
     scanCode: "FCS-062519-01",
@@ -115,6 +128,144 @@ const data: ItemEntryData[] = [
   },
 ];
 
+const currentPayments: PaymentData[] = [
+  {
+    dateDue: "01/17/2025",
+    amountDue: "$-1600.00",
+    payType: "Credit",
+    LI: "",
+    amountPaid: "$-1600.00",
+    datePaid: "01/17/2025 12:11:04",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+];
+
+const originalPayments: PaymentData[] = [
+  {
+    dateDue: "12/26/2024",
+    amountDue: "$1900.00",
+    payType: "Clover Int",
+    LI: "",
+    amountPaid: "$1900.00",
+    datePaid: "12/26/2024 10:43:32",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+  {
+    dateDue: "",
+    amountDue: "",
+    payType: "",
+    LI: "",
+    amountPaid: "",
+    datePaid: "",
+    cardCheckNum: "",
+    exp: "",
+    cardName: "",
+    authDL: "",
+  },
+];
+
 const headers = [
   "ScanCode",
   "Title",
@@ -125,6 +276,19 @@ const headers = [
   "Ret",
   "Price New",
   "Total",
+];
+
+const paymentHeaders = [
+  "Date Due",
+  "Amount Due",
+  "Pay Type",
+  "L/I",
+  "Amount Paid",
+  "Date Paid",
+  "Card/Check Num",
+  "Exp",
+  "Card Name",
+  "Auth/D.L",
 ];
 
 const TabSection = () => {
@@ -416,6 +580,137 @@ const TabSection = () => {
                     />
                     <button className="action-button">Ship to Here</button>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case "Payments":
+        return (
+          <div className="item-entry-content">
+            {/* Paid in Full Section */}
+            <div className="payment-header">
+              <div className="paid-in-full">
+                <label>Paid In Full</label>
+                <input type="text" className="input-field date-input" />
+                <span>/</span>
+                <input type="text" className="input-field date-input" />
+                <select className="input-field time-select">
+                  <option>AM</option>
+                  <option>PM</option>
+                </select>
+              </div>
+              <div className="payment-actions">
+                <button className="action-button">Add Payment</button>
+                <button className="action-button">Delete Payment</button>
+                <button className="action-button">Delete All</button>
+                <button className="action-button">Apply Credit</button>
+              </div>
+            </div>
+
+            {/* Current Payments Table */}
+            <div className="payment-table-wrapper">
+              <div className="table-container">
+                <table className="payment-table">
+                  <thead>
+                    <tr>
+                      {paymentHeaders.map((header) => (
+                        <th key={header} className="header">
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {currentPayments.map((row, index) => (
+                      <tr key={index}>
+                        <td className="row-height">{row.dateDue}</td>
+                        <td className="row-height text-right">
+                          {row.amountDue}
+                        </td>
+                        <td className="row-height">{row.payType}</td>
+                        <td className="row-height">{row.LI}</td>
+                        <td className="row-height text-right">
+                          {row.amountPaid}
+                        </td>
+                        <td className="row-height">{row.datePaid}</td>
+                        <td className="row-height">{row.cardCheckNum}</td>
+                        <td className="row-height">{row.exp}</td>
+                        <td className="row-height">{row.cardName}</td>
+                        <td className="row-height">{row.authDL}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="payments-divider">
+              <span>Payments from Original Sale:</span>
+              <button className="action-button">Apply Canceled Payments</button>
+            </div>
+
+            {/* Original Sale Payments Table */}
+            <div className="payment-table-wrapper">
+              <div className="table-container">
+                <table className="payment-table">
+                  <thead>
+                    <tr>
+                      {paymentHeaders.map((header) => (
+                        <th key={header} className="header">
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {originalPayments.map((row, index) => (
+                      <tr key={index}>
+                        <td className="row-height">{row.dateDue}</td>
+                        <td className="row-height text-right">
+                          {row.amountDue}
+                        </td>
+                        <td className="row-height">{row.payType}</td>
+                        <td className="row-height">{row.LI}</td>
+                        <td className="row-height text-right">
+                          {row.amountPaid}
+                        </td>
+                        <td className="row-height">{row.datePaid}</td>
+                        <td className="row-height">{row.cardCheckNum}</td>
+                        <td className="row-height">{row.exp}</td>
+                        <td className="row-height">{row.cardName}</td>
+                        <td className="row-height">{row.authDL}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        );
+      case "Notes":
+        return (
+          <div className="notes-content">
+            <div className="notes-layout">
+              {/* Left side - Contact Notes */}
+              <div className="contact-notes">
+                <div className="notes-header">Contact Notes</div>
+                <textarea className="contact-notes-textarea" rows={10} />
+              </div>
+
+              {/* Right side container */}
+              <div className="right-notes-container">
+                {/* Top right - Shipping Notes */}
+                <div className="shipping-notes">
+                  <div className="notes-header">Shipping Notes</div>
+                  <textarea className="notes-textarea" rows={5} />
+                </div>
+
+                {/* Bottom right - Transaction Notes */}
+                <div className="transaction-notes">
+                  <div className="notes-header">Transaction Notes</div>
+                  <textarea className="notes-textarea" rows={5} />
                 </div>
               </div>
             </div>

@@ -925,3 +925,177 @@ label {
   flex-direction: column;
   gap: 8px;
 }
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.paid-in-full {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.paid-in-full label {
+  font-size: 11px;
+}
+
+.payment-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.payments-divider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 11px;
+}
+
+.payment-table-wrapper {
+  border: 1px solid #7b7b7b;
+  background-color: white;
+  display: flex;
+  height: 110px;
+}
+
+.payment-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: white;
+}
+
+.payment-table th {
+  padding: 0 4px;
+  background-color: #ece9d8;
+  font-weight: normal;
+  font-size: 11px;
+  border: 1px solid #7b7b7b;
+  height: 22px;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.payment-table td.row-height {
+  height: 16px;
+  font-size: 11px;
+  padding: 0 4px;
+  border: 1px solid #7b7b7b;
+  background-color: white;
+}
+
+/* Specific column widths for payment table */
+.payment-table th:nth-child(1), /* Date Due */
+  .payment-table td:nth-child(1) {
+  width: 70px;
+}
+
+.payment-table th:nth-child(2), /* Amount Due */
+  .payment-table td:nth-child(2),
+  .payment-table th:nth-child(5), /* Amount Paid */
+  .payment-table td:nth-child(5) {
+  width: 75px;
+}
+
+.payment-table th:nth-child(3), /* Pay Type */
+  .payment-table td:nth-child(3) {
+  width: 60px;
+}
+
+.payment-table th:nth-child(4), /* L/I */
+  .payment-table td:nth-child(4) {
+  width: 30px;
+}
+
+.payment-table th:nth-child(6), /* Date Paid */
+  .payment-table td:nth-child(6) {
+  width: 120px;
+}
+
+.payment-table th:nth-child(7), /* Card/Check Num */
+  .payment-table td:nth-child(7) {
+  width: 95px;
+}
+
+.payment-table th:nth-child(8), /* Exp */
+  .payment-table td:nth-child(8) {
+  width: 60px;
+}
+
+.payment-table th:nth-child(9), /* Card Name */
+  .payment-table td:nth-child(9) {
+  width: 80px;
+}
+
+.payment-table th:nth-child(10), /* Auth/D.L */
+  .payment-table td:nth-child(10) {
+  width: 60px;
+}
+
+/* Table text alignment */
+.payment-table td.text-right {
+  text-align: right;
+}
+
+.notes-content {
+  padding: 8px;
+  height: 260px; /* Set a fixed height */
+}
+
+.notes-layout {
+  display: flex;
+  gap: 16px;
+}
+
+.contact-notes {
+  flex: 1;
+  height: 100%;
+}
+
+.right-notes-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shipping-notes,
+.transaction-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.notes-header {
+  font-size: 11px;
+  color: #000;
+}
+
+.notes-textarea {
+  width: 100%;
+  height: 100%; /* Fill container height */
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-size: 11px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  resize: none;
+  background: white;
+}
+
+.contact-notes-textarea {
+  width: 100%;
+  height: 225px; /* Fill container height */
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-size: 11px;
+  font-family: "Microsoft Sans Serif", sans-serif;
+  resize: none;
+  background: white;
+}

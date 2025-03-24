@@ -28,12 +28,6 @@ body {
   font-style: normal;
 }
 
-.form-group label {
-  font-weight: 600;
-  text-align: right;
-  width: 80px;
-}
-
 .border {
   width: 800px;
   padding: 12px;
@@ -124,17 +118,6 @@ body {
   min-width: 0;
   grid-template-columns: auto 150px auto 40px auto 80px;
   padding-left: 20px;
-}
-
-.form-group {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 2px;
-}
-
-.form-group label {
-  width: 80px;
-  text-align: right;
 }
 
 .input-field {
@@ -521,7 +504,7 @@ body {
 }
 
 /* Bottom Row */
-.button-row {
+.transactions-button-row {
   display: flex;
   justify-content: space-between;
   align-items: center;

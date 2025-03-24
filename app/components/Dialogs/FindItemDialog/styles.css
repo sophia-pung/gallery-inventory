@@ -1,16 +1,36 @@
 .button-row {
   display: flex;
-  gap: 4px;
-  padding: 4px;
-  border-bottom: 1px solid #7b7b7b;
+  gap: 15px;
+  padding: 3px 8px;
+  background: #ece9d8;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 .button-row button {
-  padding: 4px 12px;
-  background: linear-gradient(to bottom, #ffffff, #dfdfdf);
-  border: 1px solid #7b7b7b;
+  background: linear-gradient(180deg, #f0f0f0 0%, #e7e7e7 100%);
+  padding: 4px 8px;
+  margin: 0;
+  border: 1px solid #000000;
+  box-sizing: border-box;
   font-size: 11px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  text-align: left;
+  min-width: max-content;
+  border-radius: 6px;
   cursor: pointer;
+  font-family: "Microsoft Sans Serif";
+}
+
+.button-row button:hover {
+  background: linear-gradient(to bottom, #f0f0f0, #d0d0d0);
+}
+
+.button-row button:active {
+  background: linear-gradient(to bottom, #dfdfdf, #ffffff);
 }
 
 .search-criteria {
@@ -18,6 +38,42 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-left: 8px;
+  width: fit-content;
+}
+
+.form-group label {
+  font-size: 11px;
+  min-width: 35px;
+  text-align: left;
+  width: 60px;
+}
+
+.form-group input {
+  width: 200px;
+  height: 20px;
+  font-size: 11px;
+  padding: 1px 4px;
+  background: white;
+  margin-right: 16px;
+}
+
+.form-group .input-field {
+  width: 200px;
+  height: 20px;
+  border: 1px solid #ccc;
+  padding: 2px 4px;
+  box-sizing: border-box;
+}
+
+.form-group input[id="inv"] {
+  width: 300px;
 }
 
 .grid-container {
@@ -56,4 +112,72 @@
 .status-options {
   display: flex;
   gap: 8px;
+}
+
+.contacts-transactions-tab {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contacts-transactions-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.contacts-transactions-grid {
+  border: 1px solid #7b7b7b;
+  overflow: auto;
+}
+
+.contacts-transactions-grid table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.contacts-transactions-grid th {
+  background-color: #ece9d8;
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-weight: normal;
+  text-align: left;
+  position: sticky;
+  top: 0;
+}
+
+.contacts-transactions-grid td {
+  border: 1px solid #7b7b7b;
+  background: white;
+  height: 20px;
+}
+
+.contacts-transactions-grid td.money {
+  text-align: right;
+}
+
+.contacts-transactions-grid tr:hover td {
+  background-color: #e8e8e8;
+}
+
+.find-item-grid td {
+  border: 1px solid #7b7b7b;
+  padding: 4px;
+  font-size: 11px;
 }

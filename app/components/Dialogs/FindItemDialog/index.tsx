@@ -77,26 +77,6 @@ const FindItemDialog = ({ isOpen, onClose }: FindItemDialogProps) => {
             </div>
           </div>
           <FindItemGrid />
-          <div className="filter-options">
-            <label className="checkbox-label">
-              <input type="checkbox" />
-              Remember Filter
-            </label>
-            <div className="status-options">
-              <label className="checkbox-label">
-                <input type="checkbox" />
-                Consigned
-              </label>
-              <label className="checkbox-label">
-                <input type="checkbox" />
-                UnSold
-              </label>
-              <label className="checkbox-label">
-                <input type="checkbox" />
-                All Items
-              </label>
-            </div>
-          </div>
         </div>
       </div>
     </div>
